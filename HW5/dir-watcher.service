@@ -1,0 +1,15 @@
+[Unit]
+Description=Watch directory /home/test/watch for new files
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/bin/bash /usr/local/bin/dir-watcher.sh
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
